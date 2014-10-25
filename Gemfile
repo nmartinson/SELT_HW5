@@ -7,6 +7,7 @@ ruby '1.9.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # for Heroku deployment - as described in Ap A of ELLS book
+gem 'themoviedb'
 group :development, :test do
   gem 'sqlite3'
   gem 'debugger'

@@ -6,7 +6,20 @@ class MoviesController < ApplicationController
     # will render app/views/movies/show.<extension> by default
   end
 
-  def index
+  def add_tmdb
+    keyArray = params[:tmdb_movies].keys
+    keyArray.each do |key|
+      Movie.create_from_tmdb(key)
+    end  
+    redirect_to movies_path
+  end
+
+  def search_tmdb
+    @matching_movies = Movie.find_in_tmdb(params[:search][:title])
+    @searchTerm = params[:search][:title]
+  end
+  
+    def index
     sort = params[:sort] || session[:sort]
     case sort
     when 'title'
