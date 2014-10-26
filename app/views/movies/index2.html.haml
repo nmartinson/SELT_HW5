@@ -24,11 +24,12 @@
         %td= movie.release_date
         %td= link_to "More about #{movie.title}", movie_path(movie)
 
+= form_tag search_tmdb_path, :method => :post do
 
-= form_tag :action => 'search_tmdb' do
-  %label{:for => 'search_terms'}Search Terms
-  = text_field_tag 'search_terms'
-  = submit_tag 'Search TMDb'
+  = label :search_terms, 'Search for movie title containing' #:search, :title, 'Search for movie title containing'
+  = text_field :search_terms #:search, :title
+
+  = submit_tag 'Search'
 
 
 

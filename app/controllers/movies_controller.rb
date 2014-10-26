@@ -15,8 +15,8 @@ class MoviesController < ApplicationController
   end
 
   def search_tmdb
-    @matching_movies = Movie.find_in_tmdb(params[:search][:title])
-    @searchTerm = params[:search][:title]
+    @matching_movies = Movie.find_in_tmdb(params[:search_terms])      #[:search][:title])
+    @searchTerm = params[:search_terms] #params[:search][:title]
   end
   
     def index
