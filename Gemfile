@@ -8,6 +8,7 @@ ruby '1.9.3'
 
 # for Heroku deployment - as described in Ap A of ELLS book
 gem 'themoviedb'
+gem 'simplecov', :require => false, :group => :test
 group :development, :test do
   gem 'sqlite3'
   gem 'debugger'
