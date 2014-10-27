@@ -1,5 +1,7 @@
 %h1 All Movies
 
+
+
 = form_tag movies_path, :method => :get, :id => 'ratings_form' do
   = hidden_field_tag "title_sort", true if @title_header
   = hidden_field_tag ":release_date_sort", true if @date_header
@@ -26,7 +28,7 @@
 
 
 = form_tag :action => 'search_tmdb' do
-  %label{:for => 'search_terms'}Search Terms
+  %label{:for => 'search_terms'}Search for movie titles containing
   = text_field_tag 'search_terms'
   = submit_tag 'Search TMDb'
 
