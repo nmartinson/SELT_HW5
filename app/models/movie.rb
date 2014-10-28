@@ -11,8 +11,10 @@ class Movie < ActiveRecord::Base
      Tmdb::Api.key("f4702b08c0ac6ea5b51425788bb26562")
      matching_movies = Tmdb::Movie.find(title)
      @movies = []
-     matching_movies.each do |movie|
-       @movies << {:title => movie.title, :release_date => movie.release_date, :rating => "G", :tmdb_id => movie.id}
+     if( matching_movies)
+       matching_movies.each do |movie|
+          @movies << {:title => movie.title, :release_date => movie.release_date, :rating => "G", :tmdb_id => movie.id}
+       end
      end
      rescue NoMethodError => tmdb_gem_exception
         if Tmdb::Api.response['code'] == '401'
